@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Авторизация</title>
+    <link
+      rel="stylesheet"
+      href="/static/css/login.css"
+      th:href="@{css/login.css}" />
+
+    <link
+      rel="icon"
+      href="/static/media/favicon.ico"
+      th:href="@{/media/favicon.ico}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-container">
+        <img
+          src="/static/media/logohg.png"
+          th:src="@{media/logohg.png}" />
+      </div>
+      <div class="form-container">
+        <ul>
+          <li
+            class="error"
+            th:if="${param.error}">
+            Вы ввели не верный логин или пароль!
+          </li>
+          <li
+            class="logout"
+            th:if="${param.logout}">
+            Вы вышли из системы.
+          </li>
+        </ul>
+
+        <form
+          th:action="@{/login}"
+          method="POST">
+          <input
+            type="text"
+            name="username" />
+          <input
+            type="password"
+            name="password" />
+          <input
+            type="submit"
+            value="Войти" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="/static/css/style.css"
+      th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <img
+          src="/static/media/logohg.png"
+          th:src="@{/media/logohg.png}"
+          alt="Лого компании" />
+      </header>
+
+      <nav th:replace="~{menu/nav-menu :: nav-menu}"></nav>
+
+      <main>
+        <div class="content">
+          <p style="text-align: center">
+            <strong>Михаил Сергеевич, привествую!</strong>
+          </p>
+          <p style="text-align: justify">
+            Ниже, описана инструкция о том, как корректно пользоваться сайтом
+            журналом. Если ещё не почитал, пожалуйста ознакомься с инструкций
+            перед использованием.
+          </p>
+        </div>
+      </main>
+      <footer>footer</footer>
+    </div>
+  </body>
+</html>
