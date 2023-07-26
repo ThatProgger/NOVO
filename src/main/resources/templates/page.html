@@ -32,38 +32,39 @@
           <form
             th:action="@{/entry/add}"
             method="POST">
-            <select>
+            <select th:field="${entry.entryType}">
               <option
-                value=""
+                value="0"
                 selected>
                 Тип выполняемой работы
               </option>
-              <option value="">Телефония</option>
-              <option value="">Сеть интернет</option>
-              <option value="">Прочее</option>
+              <option
+                th:each="type : ${T(com.novo.model.entry.enums.EntryType).values()}"
+                th:value="${type}"
+                th:text="${type}"></option>
             </select>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Введите подробное описание выполненной работы"></textarea>
 
-            <label for="">Отвественные сотрудники:</label>
-            <label for="">
-              <input
-                type="checkbox"
-                name=""
-                id="" />
-              Employee name #1
-            </label>
-            <label for="">
-              <input
-                type="checkbox"
-                name=""
-                id="" />
-              Employee name #2
-            </label>
+            <textarea
+              placeholder="Введите подробное описание выполненной работы"
+              th:field="${entry.text}"></textarea>
+
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="5">Назначить отвественных сотрудников</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="emp : ${emps}">
+                  <td colspan="1"><input type="checkbox" /></td>
+                  <td
+                    colspan="4"
+                    th:text="${emp.firstName} + ' ' + ${emp.middleName} + ' ' + ${emp.lastName}">
+                    Necessitatibus?
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             <input
               type="submit"
               value="Добавить" />

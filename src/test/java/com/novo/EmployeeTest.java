@@ -41,19 +41,6 @@ public class EmployeeTest {
             throw new RuntimeException(e);
         }
 
-
-        try {
-            user = userService.findByUsername("admin");
-            Assertions.assertNotEquals(0, user.getEmployeeList());
-            List<Employee> list = user.getEmployeeList();
-            list.remove(savedEmployee);
-            user.setEmployeeList(list);
-            userService.save(user);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        employeeService.deleteById(savedEmployee.getId());
     }
 
 

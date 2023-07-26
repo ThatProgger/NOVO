@@ -20,12 +20,13 @@ import java.util.List;
  * @author Mikhail Dedyukhin
  * @since 1.0
  */
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Builder
 @Table(name = "entries")
+@Data
 @EntityListeners(AuditingEntityListener.class)
 public class Entry {
     @Id

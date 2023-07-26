@@ -127,6 +127,21 @@ main .add-entry form textarea {
 main .add-entry form input[type=submit] {
   display: block;
   margin: 0 auto;
+  margin: 5px;
+}
+main .add-entry form table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+}
+main .add-entry form table th {
+  background-color: #4485bb;
+  color: white;
+  padding: 10px 0;
+}
+main .add-entry form table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 7px 0;
 }
 
 footer {
