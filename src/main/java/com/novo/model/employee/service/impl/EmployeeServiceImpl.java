@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * The class extends the {@link RoleService} interface and allows you to operate on models in the database.
+ * The class implements the {@link RoleService} interface and allows you to operate on models in the database.
  *
  * @author Mikhail Dedyukhin
  * @since 1.0
