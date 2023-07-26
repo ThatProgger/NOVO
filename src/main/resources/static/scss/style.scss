@@ -97,8 +97,41 @@ main {
   background-color: white;
   margin-top: 10px;
 
-  .content {
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .add-entry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+
+    form {
+      width: 100%;
+      input[type="text"],
+      label,
+      select,
+      textarea {
+        display: block;
+        min-width: 100%;
+        max-width: 100%;
+        margin: 3px;
+      }
+
+      select {
+        height: 40px;
+      }
+
+      textarea {
+        min-height: 300px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+      }
+    }
   }
 }
 

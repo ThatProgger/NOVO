@@ -96,9 +96,37 @@ main {
   flex: 1 1 auto;
   background-color: white;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-main .content {
-  padding: 10px;
+main .add-entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+main .add-entry form {
+  width: 100%;
+}
+main .add-entry form input[type=text],
+main .add-entry form label,
+main .add-entry form select,
+main .add-entry form textarea {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  margin: 3px;
+}
+main .add-entry form select {
+  height: 40px;
+}
+main .add-entry form textarea {
+  min-height: 300px;
+}
+main .add-entry form input[type=submit] {
+  display: block;
+  margin: 0 auto;
 }
 
 footer {

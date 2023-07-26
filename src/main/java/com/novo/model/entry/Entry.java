@@ -1,6 +1,7 @@
 package com.novo.model.entry;
 
 import com.novo.model.entry.enums.EntryType;
+import com.novo.model.responsible.Responsible;
 import com.novo.model.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Describes the logging model
+ * Describes the model of responsible employees for a particular job
  * @author Mikhail Dedyukhin
  * @since 1.0
  */
@@ -44,4 +45,8 @@ public class Entry {
     @Temporal(TemporalType.DATE)
     @CreatedDate
     private Date created;
+
+    @OneToMany
+    @JoinColumn(name = "entry_id")
+    private List<Responsible> responsibles;
 }

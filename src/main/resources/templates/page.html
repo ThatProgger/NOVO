@@ -28,15 +28,46 @@
       <nav th:replace="~{menu/nav-menu :: nav-menu}"></nav>
 
       <main>
-        <div class="content">
-          <p style="text-align: center">
-            <strong>Михаил Сергеевич, привествую!</strong>
-          </p>
-          <p style="text-align: justify">
-            Ниже, описана инструкция о том, как корректно пользоваться сайтом
-            журналом. Если ещё не почитал, пожалуйста ознакомься с инструкций
-            перед использованием.
-          </p>
+        <div class="add-entry">
+          <form
+            th:action="@{/entry/add}"
+            method="POST">
+            <select>
+              <option
+                value=""
+                selected>
+                Тип выполняемой работы
+              </option>
+              <option value="">Телефония</option>
+              <option value="">Сеть интернет</option>
+              <option value="">Прочее</option>
+            </select>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Введите подробное описание выполненной работы"></textarea>
+
+            <label for="">Отвественные сотрудники:</label>
+            <label for="">
+              <input
+                type="checkbox"
+                name=""
+                id="" />
+              Employee name #1
+            </label>
+            <label for="">
+              <input
+                type="checkbox"
+                name=""
+                id="" />
+              Employee name #2
+            </label>
+            <input
+              type="submit"
+              value="Добавить" />
+          </form>
         </div>
       </main>
       <footer>footer</footer>
