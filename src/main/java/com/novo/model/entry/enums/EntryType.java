@@ -6,7 +6,18 @@ package com.novo.model.entry.enums;
  * @since 1.0
  */
 public enum EntryType {
-    Telephony,
-    NetWork,
-    Other
+    Telephony ("Телефония"),
+    NetWork ("Сеть"),
+    Asupog ("АСУПОГ"),
+    Other ("Прочее");
+
+    private final String displayValue;
+
+    private EntryType(String displayValue) {
+        this.displayValue = displayValue;
+    }
+
+    public String getDisplayValue() {
+        return displayValue;
+    }
 }

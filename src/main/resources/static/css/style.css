@@ -60,7 +60,6 @@ nav ul li a {
   display: block;
   font-size: 16px;
   color: black;
-  border-radius: 10px;
   text-decoration: none;
 }
 
@@ -82,7 +81,6 @@ nav ul li ul {
 
 nav ul li ul li {
   width: 100%;
-  border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -100,53 +98,417 @@ main {
   justify-content: center;
   align-items: center;
 }
+main .main-container {
+  width: 100%;
+  height: 100%;
+}
 main .add-entry {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 400px;
 }
 main .add-entry form {
   width: 100%;
+  display: block;
 }
 main .add-entry form input[type=text],
 main .add-entry form label,
 main .add-entry form select,
 main .add-entry form textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: block;
-  min-width: 100%;
-  max-width: 100%;
-  margin: 3px;
+  margin: 0 auto;
+  margin-top: 3px;
+}
+main .add-entry form input[type=text] {
+  height: 30px;
+  padding: 3px;
 }
 main .add-entry form select {
   height: 40px;
 }
 main .add-entry form textarea {
-  min-height: 300px;
+  resize: vertical;
+  min-height: 100px;
+  padding: 3px;
 }
-main .add-entry form input[type=submit] {
-  display: block;
-  margin: 0 auto;
-  margin: 5px;
+main .add-entry form .error-server-response {
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: darkred;
+  text-align: center;
 }
-main .add-entry form table {
+main .add-entry table {
   width: 100%;
   table-layout: fixed;
   text-align: center;
+  border-collapse: collapse;
 }
-main .add-entry form table th {
+main .add-entry table th {
   background-color: #4485bb;
   color: white;
   padding: 10px 0;
 }
-main .add-entry form table td {
+main .add-entry table td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
+}
+main .add-entry .table-container {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 900px;
+}
+main .add-entry .table-container::-webkit-scrollbar {
+  display: none;
+}
+main .add-entry .table-container tr:nth-child(even) {
+  background-color: #d0e4f5;
+}
+main .add-entry .table-container td {
+  font-size: 0.7em;
+}
+main .add-entry .table-container td a img {
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3;
+}
+main .add-entry .table-container td a img:hover {
+  transform: scale(1.1);
+}
+main .add-entry input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+main .entries {
+  width: 100%;
+  height: 100%;
+}
+main .entries table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+}
+main .entries table th {
+  background-color: #4485bb;
+  color: white;
+  padding: 10px 0;
+}
+main .entries table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 7px 0;
+}
+main .entries .table-container {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 900px;
+}
+main .entries .table-container::-webkit-scrollbar {
+  display: none;
+}
+main .entries .table-container tr:nth-child(even) {
+  background-color: #d0e4f5;
+}
+main .entries .table-container td {
+  font-size: 0.7em;
+}
+main .entries .table-container td a img {
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3;
+}
+main .entries .table-container td a img:hover {
+  transform: scale(1.1);
+}
+main .entries input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+main .add-employee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+main .add-employee form {
+  width: 100%;
+  display: block;
+}
+main .add-employee form input[type=text],
+main .add-employee form label,
+main .add-employee form select,
+main .add-employee form textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+  margin-top: 3px;
+}
+main .add-employee form input[type=text] {
+  height: 30px;
+  padding: 3px;
+}
+main .add-employee form select {
+  height: 40px;
+}
+main .add-employee form textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding: 3px;
+}
+main .add-employee form .error-server-response {
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: darkred;
+  text-align: center;
+}
+main .add-employee table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+}
+main .add-employee table th {
+  background-color: #4485bb;
+  color: white;
+  padding: 10px 0;
+}
+main .add-employee table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 7px 0;
+}
+main .add-employee .table-container {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 900px;
+}
+main .add-employee .table-container::-webkit-scrollbar {
+  display: none;
+}
+main .add-employee .table-container tr:nth-child(even) {
+  background-color: #d0e4f5;
+}
+main .add-employee .table-container td {
+  font-size: 0.7em;
+}
+main .add-employee .table-container td a img {
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3;
+}
+main .add-employee .table-container td a img:hover {
+  transform: scale(1.1);
+}
+main .add-employee input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+main .employees {
+  width: 100%;
+  height: 100%;
+}
+main .employees table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+}
+main .employees table th {
+  background-color: #4485bb;
+  color: white;
+  padding: 10px 0;
+}
+main .employees table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 7px 0;
+}
+main .employees .table-container {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 900px;
+}
+main .employees .table-container::-webkit-scrollbar {
+  display: none;
+}
+main .employees .table-container tr:nth-child(even) {
+  background-color: #d0e4f5;
+}
+main .employees .table-container td {
+  font-size: 0.7em;
+}
+main .employees .table-container td a img {
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3;
+}
+main .employees .table-container td a img:hover {
+  transform: scale(1.1);
+}
+main .employees input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+main .users {
+  width: 100%;
+  height: 100%;
+}
+main .users table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+}
+main .users table th {
+  background-color: #4485bb;
+  color: white;
+  padding: 10px 0;
+}
+main .users table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 7px 0;
+}
+main .users .table-container {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 900px;
+}
+main .users .table-container::-webkit-scrollbar {
+  display: none;
+}
+main .users .table-container tr:nth-child(even) {
+  background-color: #d0e4f5;
+}
+main .users .table-container td {
+  font-size: 0.7em;
+}
+main .users .table-container td a img {
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3;
+}
+main .users .table-container td a img:hover {
+  transform: scale(1.1);
+}
+main .users input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+main .add-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+main .add-user form {
+  width: 100%;
+  display: block;
+}
+main .add-user form input[type=text],
+main .add-user form label,
+main .add-user form select,
+main .add-user form textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto;
+  margin-top: 3px;
+}
+main .add-user form input[type=text] {
+  height: 30px;
+  padding: 3px;
+}
+main .add-user form select {
+  height: 40px;
+}
+main .add-user form textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding: 3px;
+}
+main .add-user form .error-server-response {
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: darkred;
+  text-align: center;
+}
+main .add-user table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+}
+main .add-user table th {
+  background-color: #4485bb;
+  color: white;
+  padding: 10px 0;
+}
+main .add-user table td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 7px 0;
+}
+main .add-user .table-container {
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 900px;
+}
+main .add-user .table-container::-webkit-scrollbar {
+  display: none;
+}
+main .add-user .table-container tr:nth-child(even) {
+  background-color: #d0e4f5;
+}
+main .add-user .table-container td {
+  font-size: 0.7em;
+}
+main .add-user .table-container td a img {
+  width: 20px;
+  height: 20px;
+  transition: all ease-in-out 0.3;
+}
+main .add-user .table-container td a img:hover {
+  transform: scale(1.1);
+}
+main .add-user input[type=submit] {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
 }
 
 footer {
   width: 100%;
   height: 50px;
+  margin-top: 10px;
   background: linear-gradient(#65a7e1, #4485bb);
   border-radius: 10px;
   display: flex;

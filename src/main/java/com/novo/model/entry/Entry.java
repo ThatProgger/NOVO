@@ -2,7 +2,6 @@ package com.novo.model.entry;
 
 import com.novo.model.entry.enums.EntryType;
 import com.novo.model.responsible.Responsible;
-import com.novo.model.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +16,7 @@ import java.util.List;
 
 /**
  * Describes the model of responsible employees for a particular job
+ *
  * @author Mikhail Dedyukhin
  * @since 1.0
  */
@@ -32,22 +32,25 @@ public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "text", nullable = false)
-    @Lob
-    private String text;
+
+
+    @Column(name = "data", nullable = false, columnDefinition = "varchar(1000)")
+    private String data;
 
     @Column(name = "entry_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private EntryType entryType;
-    @Column(name = "created_by", nullable = false)
+
+
     @CreatedBy
     private String createdBy;
+
 
     @Temporal(TemporalType.DATE)
     @CreatedDate
     private Date created;
 
     @OneToMany
-    @JoinColumn(name = "entry_id")
+    @JoinTable(name = "entry_responsibles", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "responsibles_id"))
     private List<Responsible> responsibles;
 }

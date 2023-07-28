@@ -108,4 +108,11 @@ public class EntryServiceImpl implements EntryService {
         iterable.forEach(entries::add);
         return entries;
     }
+
+
+    @Override
+    public List<Entry> findAllinInvertedOrder() {
+        List<Entry> entries = entryDao.findAllinInvertedOrder();
+        return entries;
+    }
 }

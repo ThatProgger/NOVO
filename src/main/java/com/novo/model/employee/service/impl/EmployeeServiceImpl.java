@@ -5,15 +5,19 @@ import com.novo.model.employee.dao.EmployeeDao;
 import com.novo.model.employee.service.EmployeeService;
 import com.novo.model.role.Role;
 import com.novo.model.role.service.RoleService;
+import com.novo.model.user.User;
+import com.novo.model.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.dialect.lock.OptimisticEntityLockException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * The class implements the {@link RoleService} interface and allows you to operate on models in the database.
@@ -26,6 +30,8 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeDao employeeDao;
+
+
 
     @Override
     public Employee save(Employee employee) {
@@ -108,13 +114,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = new ArrayList<>();
         iterable.forEach(employees::add);
         return employees;
-    }
-
-    @Override
-    public boolean exists(String firstName, String middleName, String lastName) {
-        boolean exists = employeeDao.existsByFirstNameAndMiddleNameAndLastName(firstName, middleName, lastName);
-        log.debug("The employee {} {} {} exists: {}", firstName, middleName, lastName, exists);
-        return exists;
     }
 
 }

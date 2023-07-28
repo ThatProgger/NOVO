@@ -1,29 +1,75 @@
 <nav th:fragment="nav-menu">
   <ul>
     <li>
-      <a href="#">Главная</a>
+      <a
+        href="#"
+        th:href="@{/}"
+        >Главная</a
+      >
     </li>
     <li>
       <a href="#">Журнал</a>
       <ul>
-        <li><a href="/entry/add">Добавить запись</a></li>
-        <li><a href="#">Посмотреть записи</a></li>
+        <li>
+          <a
+            href="#"
+            th:href="@{/entry/add}"
+            >Добавить запись</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            th:href="@{/entry}"
+            >Записи</a
+          >
+        </li>
       </ul>
     </li>
     <li>
       <a href="#">Отвественные</a>
       <ul>
-        <li><a href="#">Добавить отвественного</a></li>
-        <li><a href="#">Посмотреть всех</a></li>
+        <li>
+          <a
+            href="#"
+            th:href="@{/employee/add}"
+            >Добавить отвественного</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            th:href="@{/employee}"
+            >Посмотреть всех</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li th:if="${showUserMenu eq true}">
+      <a href="#">Пользователи</a>
+      <ul>
+        <li>
+          <a
+            href="#"
+            th:href="@{/users/add}"
+            >Добавить пользователя</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            th:href="@{/users}"
+            >Посмотреть всех</a
+          >
+        </li>
       </ul>
     </li>
     <li>
-      <a href="#">Пользователи</a>
-      <ul>
-        <li><a href="#">Добавить пользователя</a></li>
-        <li><a href="#">Посмотреть всех</a></li>
-      </ul>
+      <a
+        href="#"
+        th:href="@{/logout}"
+        >Выход</a
+      >
     </li>
-    <li><a href="#">Выход</a></li>
   </ul>
 </nav>

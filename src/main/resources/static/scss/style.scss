@@ -1,3 +1,7 @@
+@import "table";
+@import "input";
+@import "form";
+
 * {
   padding: 0;
   margin: 0;
@@ -60,7 +64,6 @@ nav ul li a {
   display: block;
   font-size: 16px;
   color: black;
-  border-radius: 10px;
   text-decoration: none;
 }
 
@@ -82,7 +85,6 @@ nav ul li ul {
 
 nav ul li ul li {
   width: 100%;
-  border-radius: 10px;
   border: 1px solid rgba($color: #000000, $alpha: 0.1);
 }
 
@@ -101,61 +103,71 @@ main {
   justify-content: center;
   align-items: center;
 
+  .main-container {
+    width: 100%;
+    height: 100%;
+  }
+
   .add-entry {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    width: 400px;
 
-    form {
-      width: 100%;
-      input[type="text"],
-      label,
-      select,
-      textarea {
-        display: block;
-        min-width: 100%;
-        max-width: 100%;
-        margin: 3px;
-      }
+    @include form;
+    @include table;
+    @include input;
+  }
 
-      select {
-        height: 40px;
-      }
+  .entries {
+    width: 100%;
+    height: 100%;
+    @include table;
+    @include input;
+  }
 
-      textarea {
-        min-height: 300px;
-      }
+  .add-employee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
 
-      input[type="submit"] {
-        display: block;
-        margin: 0 auto;
-        margin: 5px;
-      }
+    @include form;
+    @include table;
+    @include input;
+  }
 
-      table {
-        width: 100%;
-        table-layout: fixed;
-        text-align: center;
+  .employees {
+    width: 100%;
+    height: 100%;
 
-        th {
-          background-color: #4485bb;
-          color: white;
-          padding: 10px 0;
-        }
+    @include table;
+    @include input;
+  }
 
-        td {
-          border: 1px solid rgba($color: #000000, $alpha: 0.1);
-          padding: 7px 0;
-        }
-      }
-    }
+  .users {
+    width: 100%;
+    height: 100%;
+    @include table;
+    @include input;
+  }
+
+  .add-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+
+    @include form;
+    @include table;
+    @include input;
   }
 }
 
 footer {
   width: 100%;
   height: 50px;
+  margin-top: 10px;
   background: linear-gradient(#65a7e1, #4485bb);
   border-radius: 10px;
   display: flex;
