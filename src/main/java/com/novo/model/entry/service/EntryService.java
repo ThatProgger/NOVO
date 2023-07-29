@@ -2,6 +2,7 @@ package com.novo.model.entry.service;
 
 import com.novo.model.entry.Entry;
 import com.novo.model.service.Service;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -21,4 +22,20 @@ public interface EntryService extends Service<Entry> {
      */
     @Query("from Entry order by id desc")
     public List<Entry> findAllinInvertedOrder();
+
+
+    /**
+     * Finas all entries by the number of page.
+     * @param pageNumber contains the number of page.
+     * @return the collection associated with page.
+     */
+    public List<Entry> findAllByPageAsList(int pageNumber);
+
+    /**
+     * Finas all entries by the number of page.
+     * @param pageNumber contains the number of page.
+     * @return the collection associated with page.
+     */
+    public Page<Entry> findAllByPage(int pageNumber);
+
 }

@@ -29,62 +29,46 @@ body {
 
 header {
   width: 100%;
-  height: 150px;
-  background: linear-gradient(#65a7e1, #4485bb);
-  border-radius: 10px;
-  border: 1px solid #a4a2a5;
-  display: flex;
-  justify-content: center;
-  align-content: center;
 }
-header img {
-  width: 35%;
-}
-
-nav {
+header nav {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 5px;
+  background: linear-gradient(#65a7e1, #4485bb);
 }
-
-nav ul li {
+header nav ul li {
   position: relative;
   float: left;
 }
-
-nav ul li a {
+header nav ul li a {
   padding: 15px;
   display: block;
   font-size: 16px;
   color: black;
   text-decoration: none;
 }
-
-nav ul li a:hover {
+header nav ul li a:hover {
   padding: 15px;
   display: block;
   font-size: 16px;
   color: white;
   background-color: #4485bb;
 }
-
-nav ul li ul {
+header nav ul li ul {
   position: absolute;
   left: 0;
   width: 180px;
   background-color: #fff;
   display: none;
 }
-
-nav ul li ul li {
+header nav ul li ul li {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-nav ul li:hover > ul {
+header nav ul li:hover > ul {
   display: initial;
 }
 
@@ -153,31 +137,22 @@ main .add-entry table th {
   color: white;
   padding: 10px 0;
 }
-main .add-entry table td {
+main .add-entry table tbody tr:nth-child(even) {
+  background-color: #c2daee;
+}
+main .add-entry table tbody td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
-}
-main .add-entry .table-container {
-  overflow-y: scroll;
-  width: 100%;
-  max-height: 900px;
-}
-main .add-entry .table-container::-webkit-scrollbar {
-  display: none;
-}
-main .add-entry .table-container tr:nth-child(even) {
-  background-color: #d0e4f5;
-}
-main .add-entry .table-container td {
   font-size: 0.7em;
 }
-main .add-entry .table-container td a img {
-  width: 20px;
-  height: 20px;
-  transition: all ease-in-out 0.3;
+main .add-entry table tbody td a img {
+  width: 15px;
+  height: 15px;
 }
-main .add-entry .table-container td a img:hover {
-  transform: scale(1.1);
+main .add-entry table tbody td[colspan="4"] {
+  padding: 5px;
+  -moz-text-align-last: left;
+       text-align-last: left;
 }
 main .add-entry input[type=submit] {
   display: block;
@@ -202,31 +177,22 @@ main .entries table th {
   color: white;
   padding: 10px 0;
 }
-main .entries table td {
+main .entries table tbody tr:nth-child(even) {
+  background-color: #c2daee;
+}
+main .entries table tbody td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
-}
-main .entries .table-container {
-  overflow-y: scroll;
-  width: 100%;
-  max-height: 900px;
-}
-main .entries .table-container::-webkit-scrollbar {
-  display: none;
-}
-main .entries .table-container tr:nth-child(even) {
-  background-color: #d0e4f5;
-}
-main .entries .table-container td {
   font-size: 0.7em;
 }
-main .entries .table-container td a img {
-  width: 20px;
-  height: 20px;
-  transition: all ease-in-out 0.3;
+main .entries table tbody td a img {
+  width: 15px;
+  height: 15px;
 }
-main .entries .table-container td a img:hover {
-  transform: scale(1.1);
+main .entries table tbody td[colspan="4"] {
+  padding: 5px;
+  -moz-text-align-last: left;
+       text-align-last: left;
 }
 main .entries input[type=submit] {
   display: block;
@@ -287,31 +253,22 @@ main .add-employee table th {
   color: white;
   padding: 10px 0;
 }
-main .add-employee table td {
+main .add-employee table tbody tr:nth-child(even) {
+  background-color: #c2daee;
+}
+main .add-employee table tbody td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
-}
-main .add-employee .table-container {
-  overflow-y: scroll;
-  width: 100%;
-  max-height: 900px;
-}
-main .add-employee .table-container::-webkit-scrollbar {
-  display: none;
-}
-main .add-employee .table-container tr:nth-child(even) {
-  background-color: #d0e4f5;
-}
-main .add-employee .table-container td {
   font-size: 0.7em;
 }
-main .add-employee .table-container td a img {
-  width: 20px;
-  height: 20px;
-  transition: all ease-in-out 0.3;
+main .add-employee table tbody td a img {
+  width: 15px;
+  height: 15px;
 }
-main .add-employee .table-container td a img:hover {
-  transform: scale(1.1);
+main .add-employee table tbody td[colspan="4"] {
+  padding: 5px;
+  -moz-text-align-last: left;
+       text-align-last: left;
 }
 main .add-employee input[type=submit] {
   display: block;
@@ -336,31 +293,22 @@ main .employees table th {
   color: white;
   padding: 10px 0;
 }
-main .employees table td {
+main .employees table tbody tr:nth-child(even) {
+  background-color: #c2daee;
+}
+main .employees table tbody td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
-}
-main .employees .table-container {
-  overflow-y: scroll;
-  width: 100%;
-  max-height: 900px;
-}
-main .employees .table-container::-webkit-scrollbar {
-  display: none;
-}
-main .employees .table-container tr:nth-child(even) {
-  background-color: #d0e4f5;
-}
-main .employees .table-container td {
   font-size: 0.7em;
 }
-main .employees .table-container td a img {
-  width: 20px;
-  height: 20px;
-  transition: all ease-in-out 0.3;
+main .employees table tbody td a img {
+  width: 15px;
+  height: 15px;
 }
-main .employees .table-container td a img:hover {
-  transform: scale(1.1);
+main .employees table tbody td[colspan="4"] {
+  padding: 5px;
+  -moz-text-align-last: left;
+       text-align-last: left;
 }
 main .employees input[type=submit] {
   display: block;
@@ -385,31 +333,22 @@ main .users table th {
   color: white;
   padding: 10px 0;
 }
-main .users table td {
+main .users table tbody tr:nth-child(even) {
+  background-color: #c2daee;
+}
+main .users table tbody td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
-}
-main .users .table-container {
-  overflow-y: scroll;
-  width: 100%;
-  max-height: 900px;
-}
-main .users .table-container::-webkit-scrollbar {
-  display: none;
-}
-main .users .table-container tr:nth-child(even) {
-  background-color: #d0e4f5;
-}
-main .users .table-container td {
   font-size: 0.7em;
 }
-main .users .table-container td a img {
-  width: 20px;
-  height: 20px;
-  transition: all ease-in-out 0.3;
+main .users table tbody td a img {
+  width: 15px;
+  height: 15px;
 }
-main .users .table-container td a img:hover {
-  transform: scale(1.1);
+main .users table tbody td[colspan="4"] {
+  padding: 5px;
+  -moz-text-align-last: left;
+       text-align-last: left;
 }
 main .users input[type=submit] {
   display: block;
@@ -470,31 +409,22 @@ main .add-user table th {
   color: white;
   padding: 10px 0;
 }
-main .add-user table td {
+main .add-user table tbody tr:nth-child(even) {
+  background-color: #c2daee;
+}
+main .add-user table tbody td {
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 7px 0;
-}
-main .add-user .table-container {
-  overflow-y: scroll;
-  width: 100%;
-  max-height: 900px;
-}
-main .add-user .table-container::-webkit-scrollbar {
-  display: none;
-}
-main .add-user .table-container tr:nth-child(even) {
-  background-color: #d0e4f5;
-}
-main .add-user .table-container td {
   font-size: 0.7em;
 }
-main .add-user .table-container td a img {
-  width: 20px;
-  height: 20px;
-  transition: all ease-in-out 0.3;
+main .add-user table tbody td a img {
+  width: 15px;
+  height: 15px;
 }
-main .add-user .table-container td a img:hover {
-  transform: scale(1.1);
+main .add-user table tbody td[colspan="4"] {
+  padding: 5px;
+  -moz-text-align-last: left;
+       text-align-last: left;
 }
 main .add-user input[type=submit] {
   display: block;
@@ -503,6 +433,33 @@ main .add-user input[type=submit] {
   margin-bottom: 5px;
   padding: 10px 25px;
   cursor: pointer;
+}
+main .pagination ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+main .pagination ul li {
+  float: left;
+  padding: 5px;
+  margin: 5px;
+}
+main .pagination ul li .pages {
+  font-weight: bold;
+  font-size: 1.3em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+main .pagination ul li .correctLink {
+  font-weight: bold;
+  color: #4485bb;
+  cursor: pointer;
+}
+main .pagination ul li .incorrectLink {
+  cursor: default;
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
 }
 
 footer {

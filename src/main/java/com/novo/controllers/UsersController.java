@@ -35,7 +35,7 @@ public class UsersController {
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("add")
     public String getAddUser (Model model){
         model.addAttribute("fpath", "contents/users");
@@ -45,7 +45,7 @@ public class UsersController {
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("add")
     public String postAddUser(@ModelAttribute User user, RedirectAttributes redirectAttributes){
         if(userService.existsByUsername(user.getUsername())){

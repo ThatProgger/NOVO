@@ -1,7 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-
+<!DOCTYPE html>
 <html
-  lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org"
   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
@@ -10,23 +9,26 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
     <link
       rel="stylesheet"
       href="/static/css/style.css"
       th:href="@{/css/style.css}" />
+
+    <title>Document</title>
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <!-- <header>
         <img
           src="/static/media/logohg.png"
           th:src="@{/media/logohg.png}"
           alt="Лого компании" />
-      </header>
+      </header> -->
 
-      <nav th:replace="~{menu/nav-menu :: nav-menu}"></nav>
+      <header th:insert="~{menu/nav-menu :: nav-menu}"></header>
       <main th:replace="~{${fpath} :: ${fname}}"></main>
+
       <footer>footer</footer>
     </div>
   </body>

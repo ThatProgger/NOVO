@@ -3,14 +3,18 @@ package com.novo.model.entry.service.impl;
 import com.novo.model.employee.Employee;
 import com.novo.model.entry.Entry;
 import com.novo.model.entry.dao.EntryDao;
+import com.novo.model.entry.dao.EntryPageableDAO;
 import com.novo.model.entry.service.EntryService;
 import com.novo.model.role.service.RoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.dialect.lock.OptimisticEntityLockException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +29,9 @@ import java.util.Optional;
 public class EntryServiceImpl implements EntryService {
     @Autowired
     private EntryDao entryDao;
+    @Autowired
+    private EntryPageableDAO entryPageableDAO;
+
 
     @Override
     public Entry save(Entry entry) {
@@ -107,6 +114,7 @@ public class EntryServiceImpl implements EntryService {
         List<Entry> entries = new ArrayList<>();
         iterable.forEach(entries::add);
         return entries;
+
     }
 
 
@@ -114,5 +122,25 @@ public class EntryServiceImpl implements EntryService {
     public List<Entry> findAllinInvertedOrder() {
         List<Entry> entries = entryDao.findAllinInvertedOrder();
         return entries;
+    }
+
+
+    @Override
+    public List<Entry> findAllByPageAsList(int pageNumber) {
+        int maxSize = 25;
+        Pageable pageable = PageRequest.of(pageNumber, maxSize, Sort.Direction.DESC, "id");
+        Page<Entry> page = entryPageableDAO.findAll(pageable);
+        List<Entry> list = page.getContent();
+        log.debug("The content size: {} on the page: {}", list.size(), pageNumber);
+        return list;
+    }
+
+
+    @Override
+    public Page<Entry> findAllByPage(int pageNumber) {
+        int maxSize = 25;
+        Pageable pageable = PageRequest.of(pageNumber, maxSize, Sort.Direction.DESC, "id");
+        Page<Entry> page = entryPageableDAO.findAll(pageable);
+        return page;
     }
 }
