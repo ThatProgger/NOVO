@@ -1,6 +1,6 @@
 package com.novo.model.entry;
 
-import com.novo.model.entry.enums.EntryType;
+import com.novo.model.jobtypes.JobType;
 import com.novo.model.responsible.Responsible;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -37,10 +37,9 @@ public class Entry {
     @Column(name = "data", nullable = false, columnDefinition = "varchar(1000)")
     private String data;
 
-    @Column(name = "entry_type", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private EntryType entryType;
-
+    @ManyToMany
+    @JoinTable(name = "entry_jobTypes", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "job_types_id"))
+    private List<JobType> jobTypes;
 
     @CreatedBy
     private String createdBy;

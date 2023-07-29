@@ -1,5 +1,7 @@
 package com.novo;
 
+import com.novo.model.jobtypes.JobType;
+import com.novo.model.jobtypes.service.JobTypeService;
 import com.novo.model.role.Role;
 import com.novo.model.role.service.RoleService;
 import com.novo.model.user.User;
@@ -25,6 +27,9 @@ public class App implements CommandLineRunner {
     private RoleService roleService;
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JobTypeService jobTypeService;
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
@@ -64,23 +69,27 @@ public class App implements CommandLineRunner {
             userService.save(user);
         }
 
-        if(!userService.existsByUsername("simpleAdmin")){
-            User user = User
-                    .builder().id(0)
-                    .username("simpleAdmin")
-                    .password(new BCryptPasswordEncoder().encode("simpleAdmin"))
-                    .firstName("Simple")
-                    .middleName("Simple")
-                    .lastName("Simple")
-                    .position("Web разработчик")
-                    .isAccountNonExpired(true)
-                    .isAccountNonLocked(true)
-                    .isEnabled(true)
-                    .isCredentialsNonExpired(true)
-                    .roleSet(Set.of(roleAdmin))
-                    .build();
 
-            userService.save(user);
+
+        if(!jobTypeService.existsByName("Телефония")){
+            JobType jobType = JobType.builder().id(0).name("Телефония").build();
+            jobTypeService.save(jobType);
+
         }
+
+        if(!jobTypeService.existsByName("Сеть и интернет")){
+            JobType jobType = JobType.builder().id(0).name("Сеть и интернет").build();
+            jobTypeService.save(jobType);
+        }
+        if(!jobTypeService.existsByName("АСУПОГ")){
+            JobType jobType = JobType.builder().id(0).name("АСУПОГ").build();
+            jobTypeService.save(jobType);
+        }
+
+        if(!jobTypeService.existsByName("Прочее")){
+            JobType jobType = JobType.builder().id(0).name("Прочее").build();
+            jobTypeService.save(jobType);
+        }
+
     }
 }

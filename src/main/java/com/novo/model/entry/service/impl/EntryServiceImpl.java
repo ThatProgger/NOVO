@@ -137,10 +137,23 @@ public class EntryServiceImpl implements EntryService {
 
 
     @Override
-    public Page<Entry> findAllByPage(int pageNumber) {
+    public Page<Entry> findAllSeparatedByPages(int pageNumber) {
         int maxSize = 25;
         Pageable pageable = PageRequest.of(pageNumber, maxSize, Sort.Direction.DESC, "id");
         Page<Entry> page = entryPageableDAO.findAll(pageable);
         return page;
+    }
+
+    @Override
+    public Pageable createPageable(int pageNumber) {
+        int maxSize = 25;
+        Pageable pageable = PageRequest.of(pageNumber, maxSize, Sort.Direction.DESC, "id");
+        return pageable;
+    }
+
+    @Override
+    public Page<Entry> createPages(Pageable pageable) {
+        Page<Entry> pages = entryPageableDAO.findAll(pageable);
+        return pages;
     }
 }

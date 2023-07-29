@@ -2,6 +2,9 @@ package com.novo;
 
 import com.novo.model.entry.Entry;
 import com.novo.model.entry.dao.EntryPageableDAO;
+import com.novo.model.entry.service.EntryService;
+import com.novo.model.service.Service;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,16 +18,19 @@ import java.util.List;
 @SpringBootTest
 public class PageableTest {
     @Autowired
-    private EntryPageableDAO entryPageableDAO;
+    private EntryService entryService;
+
 
     @Test
     public void test (){
-        Pageable pageable = PageRequest.of(0, 10);
-        Page<Entry> page = entryPageableDAO.findAll(pageable);
-        System.err.println(page.getTotalElements());
-        System.err.println(page.getTotalPages());
-        List<Entry> list = page.getContent();
-        System.err.println(list.size());
+        Pageable pageable = entryService.createPageable(1);
+        Page<Entry> pages = entryService.createPages(pageable);
 
+        System.err.println(pageable.getOffset());
+
+        if(pageable.hasPrevious()){
+            Pageable _pageable = pageable.previousOrFirst();
+            System.err.println(_pageable.getPageNumber());
+        }
     }
 }

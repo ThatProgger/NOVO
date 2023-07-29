@@ -3,6 +3,7 @@ package com.novo.model.entry.service;
 import com.novo.model.entry.Entry;
 import com.novo.model.service.Service;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -36,6 +37,19 @@ public interface EntryService extends Service<Entry> {
      * @param pageNumber contains the number of page.
      * @return the collection associated with page.
      */
-    public Page<Entry> findAllByPage(int pageNumber);
+    public Page<Entry> findAllSeparatedByPages(int pageNumber);
+
+
+    /**
+     * Creates pages of the list
+     * @param pageable
+     * @return pages
+     */
+    public  Page<Entry> createPages(Pageable pageable);
+    /**
+     * Finds all entries by pageable
+     * @return pageable object.
+     */
+    public Pageable createPageable(int pageNumber);
 
 }
