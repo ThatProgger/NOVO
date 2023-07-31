@@ -146,7 +146,7 @@ public class EntryServiceImpl implements EntryService {
 
     @Override
     public Pageable createPageable(int pageNumber) {
-        int maxSize = 25;
+        int maxSize = 2;
         Pageable pageable = PageRequest.of(pageNumber, maxSize, Sort.Direction.DESC, "id");
         return pageable;
     }

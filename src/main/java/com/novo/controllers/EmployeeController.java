@@ -37,24 +37,25 @@ public class EmployeeController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        model.addAttribute("fpath", "contents/employee");
+        model.addAttribute("fpath", "fragments/employees");
         model.addAttribute("fname", "employees");
         model.addAttribute("employeeList", employees);
-        return "page";
+        return "index";
     }
 
 
     @GetMapping("add")
     public String getAddEmployee(Model model){
-        model.addAttribute("fpath", "contents/employee");
+        model.addAttribute("fpath", "fragments/employee-add");
         model.addAttribute("fname", "add");
         model.addAttribute("employee", new Employee());
-        return "page";
+        return "index";
     }
 
 
     @PostMapping("add")
     public String postAddEmployee(@ModelAttribute Employee employee, Authentication authentication){
+        log.debug(employee.toString());
         Employee savedEmployee = employeeService.save(employee);
         try {
             User user = userService.findByUsername(authentication.getName());

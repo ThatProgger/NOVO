@@ -5,6 +5,8 @@ import com.novo.model.entry.service.EntryService;
 import com.novo.model.jobtypes.service.JobTypeService;
 import com.novo.model.user.User;
 import com.novo.model.user.service.UserService;
+import com.novo.pagination.Pagination;
+import com.novo.pagination.impl.PaginationImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0
  */
 @Controller
-@RequestMapping("entry")
+@RequestMapping
 @Slf4j
 public class EntryController {
 
@@ -33,51 +35,47 @@ public class EntryController {
     @Autowired
     private JobTypeService jobTypeService;
 
+
     @GetMapping
+    public String redirect (){
+        return "redirect:/entries?page=0";
+    }
+
+    @GetMapping("entries")
     public String getEntries(Model model, @RequestParam("page") int pageNum) {
         Page<Entry> page = entryService.findAllSeparatedByPages(pageNum);
         int currentPage = page.getNumber();
         int totalPages = page.getTotalPages();
 
+        Pagination pagination = new PaginationImpl();
+        pagination.setCurrentPage(currentPage);
+        pagination.setTotalPages(totalPages);
 
-        model.addAttribute("fpath", "contents/entry");
+
+
+        model.addAttribute("fpath", "fragments/entries");
         model.addAttribute("fname", "entries");
         model.addAttribute("entries", page.getContent());
-        model.addAttribute("currentPage", currentPage + 1);
-        model.addAttribute("totalPages", totalPages);
-
-        if(currentPage == 0){
-            model.addAttribute("previousPageLinkClass", "incorrectLink");
-            model.addAttribute("previous", "#");
-        } else {
-            model.addAttribute("previousPageLinkClass", "correctLink");
-            model.addAttribute("previous", String.format("/entry?page=%d", currentPage -1));
-        }
-
-        if(currentPage == totalPages-1){
-            model.addAttribute("nextPageLinkClass", "incorrectLink");
-            model.addAttribute("next", "#");
-        }
-
-        else {
-            model.addAttribute("nextPageLinkClass", "correctLink");
-            model.addAttribute("next", String.format("/entry?page=%d", currentPage + 1));
-        }
+        model.addAttribute("pagination", pagination);
+//        model.addAttribute("currentPage", currentPage + 1);
+//        model.addAttribute("totalPages", totalPages);
 
 
-        return "page";
+
+
+        return "index";
     }
 
     @GetMapping("add")
     public String getAddEntry(Model model, Authentication authentication) throws Exception {
         User user = userService.findByUsername(authentication.getName());
 
-        model.addAttribute("fpath", "contents/entry");
+        model.addAttribute("fpath", "fragments/entry-add");
         model.addAttribute("fname", "add");
         model.addAttribute("emps", userService.findByUsername(authentication.getName()).getEmployeeList());
         model.addAttribute("entry", new Entry());
         model.addAttribute("jobTypes", jobTypeService.findAll());
-        return "page";
+        return "index";
     }
 
 
@@ -85,9 +83,8 @@ public class EntryController {
     public String postAddEntry(@ModelAttribute Entry entry, Authentication authentication) throws Exception {
         log.debug(entry.toString());
         User user = userService.findByUsername(authentication.getName());
-        log.debug(entry.toString());
         entry.setCreatedBy(String.format("%s %s %s", user.getFirstName(), user.getMiddleName(), user.getLastName()));
         entryService.save(entry);
-        return "redirect:/entry?page=0";
+        return "redirect:?page=0";
     }
 }

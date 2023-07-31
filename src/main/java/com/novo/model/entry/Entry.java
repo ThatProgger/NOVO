@@ -2,6 +2,7 @@ package com.novo.model.entry;
 
 import com.novo.model.jobtypes.JobType;
 import com.novo.model.responsible.Responsible;
+import com.novo.model.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,7 +42,7 @@ public class Entry {
     @JoinTable(name = "entry_jobTypes", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "job_types_id"))
     private List<JobType> jobTypes;
 
-    @CreatedBy
+    @Column(name = "created_by", nullable = false, length = 150)
     private String createdBy;
 
 
