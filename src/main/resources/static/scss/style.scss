@@ -14,19 +14,19 @@ body {
 }
 
 .wrapper {
-  width: 1200px;
-  min-height: 95vh;
+  width: 100%;
+  min-height: 100vh;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  border-radius: 10px;
+  // border-radius: 10px;
 
   main {
     flex: 1 1 auto;
 
     form {
-      width: 50%;
+      width: 30%;
       display: block;
       margin: 0 auto;
       margin-top: 10px;
